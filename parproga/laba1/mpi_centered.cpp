@@ -58,7 +58,11 @@ int main (int argc, char** argv) {
     size_t grid_size  = atol(argv[1]);
     float  grid_step  = atof(argv[2]);
     const char* dump_file = argv[3];
-    float  time_step  = grid_step / 10; 
+    float  time_step  = grid_step / 10;
+
+    FILE* clear = fopen(dump_file, "w");
+    if (clear) 
+        fclose(clear);
 
     function_t u[] = {u_x, u_y};
 

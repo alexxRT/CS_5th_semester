@@ -24,11 +24,11 @@ Currently two explicit defference schemes are implemented:
 
 1. left-triangle.
 
-![example](./results/triangle.png)
+![picture](results/triangle.png)
 
 2. three points, centered.
 
-![example](./results/centered.png)
+![picture](results/centered.png)
 
 ### API
 

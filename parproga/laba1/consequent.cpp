@@ -42,6 +42,10 @@ int main(int argc, char** argv) {
     const char* dump_file = argv[3];
     float time_step  = grid_step / 10;
 
+    FILE* clear = fopen(dump_file, "w");
+    if (clear) 
+        fclose(clear);
+
     equation_t* equation = create_equation(grid_size, grid_step, time_step, u_x, u_y, phi_x0, phi_y0);
     pairs_t*    pairs    = create_pairs(grid_size);
 
