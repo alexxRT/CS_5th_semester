@@ -5,8 +5,7 @@
 Convection eqauation has the following appearance:
 
 $$
-    \frac{\partial\phi}{\partial t} + \nabla \vec F = 0 \newline
-
+    \frac{\partial\phi}{\partial t} + \nabla \vec F = 0 \newline \newline
     \vec F = \vec u * \phi
 $$
 
