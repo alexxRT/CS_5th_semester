@@ -5,7 +5,9 @@
 Convection eqauation has the following appearance:
 
 $$
-    \frac{\partial\phi}{\partial t} + \nabla \vec F = 0 \newline \vec F = \vec u * \phi
+    \frac{\partial\phi}{\partial t} + \nabla \vec F = 0 \newline
+
+    \vec F = \vec u * \phi
 $$
 
 where F is simply a vector flow of $\phi$ quantity.
