@@ -19,14 +19,16 @@ $$ \phi(t, 0, y) = \phi_{x}(t, y) $$
 $$ \phi(t, x, 0) = \phi_{y}(t, x) $$
 
 ### Evaluation scheme
+
 Currently two explicit defference schemes are implemented:
+
 1. left-triangle.
 
-![example](results/triangle.png)
+![example](./results/triangle.png)
 
 2. three points, centered.
 
-![example](results/centered.png)
+![example](./results/centered.png)
 
 ### API
 
