@@ -4,23 +4,19 @@
 
 Convection eqauation has the following appearance:
 
-<p>
+$$ \frac{\partial\phi}{\partial t} + \nabla \vec F = 0 $$
 
-$$
-    \frac{\partial\phi}{\partial t} + \nabla \vec F = 0
-$$
-
-<br>
-
-$$
-    \vec F = \vec u * \phi
-$$
-
-</p>
+$$ \vec F = \vec u * \phi $$
 
 where F is simply a vector flow of $\phi$ quantity.
 
-I recieve solution with border conditions: $$\phi = \phi(t, x, y) \newline \phi(t, 0, y) = \phi_{x}(t, y) \newline \phi(t, x, 0) = \phi_{y}(t, x) $$
+I recieve solution with border conditions:
+
+$$ \phi = \phi(t, x, y) $$
+
+$$ \phi(t, 0, y) = \phi_{x}(t, y) $$
+
+$$ \phi(t, x, 0) = \phi_{y}(t, x) $$
 
 ### Evaluation scheme
 Currently two explicit defference schemes are implemented:
