@@ -4,12 +4,19 @@
 
 Convection eqauation has the following appearance:
 
+<p>
+
 $$
     \frac{\partial\phi}{\partial t} + \nabla \vec F = 0
-$$ <br>
+$$
+
+<br>
+
 $$
     \vec F = \vec u * \phi
 $$
+
+</p>
 
 where F is simply a vector flow of $\phi$ quantity.
 
