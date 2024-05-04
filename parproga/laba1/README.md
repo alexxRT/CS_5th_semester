@@ -57,6 +57,7 @@ float u_y(float time, float x, float y) {
 ```
 
 Be free to define your OWN $\phi_{x}, \phi_{y}$ and velocity vector of convection:
+
 $$ \vec u = (u_{x}, \space u_{y}) $$
 
 #### Build
