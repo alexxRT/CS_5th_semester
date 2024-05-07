@@ -19,8 +19,8 @@ float gradient_triangle(mpi_task_t* task, float grid_step, function_t u[]) {
     float phi_y  = task->phi[2];
 
     //div(u)
-    float ux_x = (u[0](time, x, y) - u[0](time, x - grid_step, y));
-    float uy_y = (u[1](time, x, y) - u[1](time, x, y - grid_step));
+    float ux_x = (u[0](time, x + grid_step, y) - u[0](time, x, y)) / grid_step;
+    float uy_y = (u[1](time, x, y + grid_step) - u[1](time, x, y)) / grid_step;
 
     float div_u = ux_x + uy_y;
 
