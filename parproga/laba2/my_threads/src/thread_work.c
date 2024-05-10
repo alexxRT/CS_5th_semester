@@ -10,7 +10,7 @@ typedef struct init_interval_ {
     integrate_function func;
 }init_interval_t;
 
-#define MIN_H 0.000001
+#define MIN_H 1e-15
 
 float get_h(double left_p, double right_p, integrate_function func) {
     //first approximation, take simply a half of the interval
@@ -21,8 +21,8 @@ float get_h(double left_p, double right_p, integrate_function func) {
         error = fabs(method(left_p, right_p, h / 2, func) \
          - method(left_p, right_p, h, func));
 
-        // if (h / 2 < MIN_H)
-        //     break;
+        if (h / 2 < MIN_H)
+             break;
 
         h /= 2;
     }
