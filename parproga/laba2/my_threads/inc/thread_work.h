@@ -4,17 +4,17 @@
 #include "run_config.h"
 
 typedef struct interval_ {
-    float left_p;
-    float right_p;
-    float h;
+    double left_p;
+    double right_p;
+    double h;
 }interval_t;
 
 typedef struct work_ {
-    float left_p;
-    float right_p;
+    double left_p;
+    double right_p;
 }work_t;
 
-interval_t* create_intervals(float left_p, float right_p, integrate_function func);
+interval_t* create_intervals(double left_p, double right_p, integrate_function func);
 void print_intervals (interval_t* intervals);
 void delete_intervals(interval_t* intervals);
 

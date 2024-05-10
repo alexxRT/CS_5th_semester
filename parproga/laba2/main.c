@@ -5,10 +5,15 @@
 #include <pthread.h>
 #include <stdio.h>
 
+// integration function
+float f(float x) {
+    return sin(1 / x);
+}
+
 int main() {
     pthread_t threads[THREADS_NUM];
 
-    interval_t*    intervals   = create_intervals(0.01, 0.02, f);
+    interval_t*    intervals   = create_intervals(0.001, 0.002, f);
     work_t*        work        = create_work(intervals);
     thread_data_t* thread_work = CALLOC(THREADS_NUM, thread_data_t);
 

@@ -5,7 +5,7 @@
 
 // can be specified on build with -D option
 #ifndef PRECISION
-    #define PRECISION 0.00001
+    #define PRECISION 0.000000001
 #endif
 
 // specified num of intervals with different h step value
@@ -14,7 +14,7 @@
 #endif
 
 #ifndef THREADS_NUM
-    #define THREADS_NUM 8
+    #define THREADS_NUM 10
 #endif
 
 typedef float (*integrate_function)(float x);

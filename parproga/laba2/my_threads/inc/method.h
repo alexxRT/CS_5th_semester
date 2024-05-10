@@ -6,6 +6,6 @@
 #include <stdlib.h>
 #include "run_config.h"
 
-float method(float left_p, float right_p, float h, integrate_function func);
+double method(double left_p, double right_p, double h, integrate_function func);
 
 #endif

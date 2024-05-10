@@ -4,13 +4,11 @@
 #include "thread_work.h"
 #include "run_config.h"
 
-
-
 typedef struct thread_data_ {
     work_t* work;
     interval_t* intervals;
     integrate_function func;
-    float result;
+    double result;
     double eval_time;
 }thread_data_t;
 

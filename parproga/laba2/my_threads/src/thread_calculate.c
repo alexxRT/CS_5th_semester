@@ -24,11 +24,11 @@ void* evaluate_integral(void* arg) {
         pthread_exit(NULL);
     }
 
-    float a = work->left_p;
-    float b = work->right_p;
+    double a = work->left_p;
+    double b = work->right_p;
 
-    float b_curr = fmin(intervals[i].right_p, b);
-    float integral = 0;
+    double b_curr = fmin(intervals[i].right_p, b);
+    double integral = 0;
 
     clock_t start = clock();
     while (a < b) {
@@ -57,11 +57,11 @@ void assign_work(thread_data_t* thread_work, interval_t* intervals, work_t* work
 }
 
 void print_result(thread_data_t* result) {
-    float integral = 0;
+    double integral = 0;
     for (size_t i = 0; i < THREADS_NUM; i ++) {
         integral += result[i].result;
         printf("I am thread [%lu]. My eval time = %lf\n", i, result[i].eval_time);
     }
 
-    printf ("Integral value = %lf\n", integral);
+    printf ("Integral value = %.15f\n", integral);
 }
