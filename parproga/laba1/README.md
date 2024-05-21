@@ -120,6 +120,7 @@ We can see, that for every point $x = y$ following is true: $$\phi(t) = 0$$
 Its only because the scheme is symetrical as border conditions to the line $y = x$. I changed border conditions:
 
 $$\tilde{\phi}(x, t) = \phi(x, t)$$
+
 $$\tilde{\phi}(y, t) = - \phi(y, t)$$
 
 And recieved $\phi \in \mathbb{C}^2$ solution:
