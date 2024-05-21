@@ -30,6 +30,10 @@ Currently two explicit defference schemes are implemented:
 
 ![picture](results/centered.png)
 
+3. four points, squared.
+
+![picture](results/squared.png)
+
 ### API
 
 #### Specify input
@@ -104,4 +108,20 @@ TA-DA:
 
 #### MPI vs Consequent
 
-Finaly reach approximately two times speed up on 1000x1000 field, when evaluate solution with MPI on 8 cores compared to consequent evaluation.
+Finaly reach approximately 1.5 times speed up on 1000x1000 field, when evaluate solution with MPI on 8 cores compared to consequent evaluation. The potential speed up can be reached only when decreasing number of send/recv function calls with reaspective to number of gradient evaluation.
+
+### UPDATE (21.04)
+New evaluation scheme was implemented. Namely four points-squared. When testing on previous border conditions recieved solution as follows:
+
+![gif](results/sol_issue.gif)
+
+We can see, that for every point $x = y$ following is true: $$\phi(t) = 0$$
+
+Its only because the scheme is symetrical as border conditions to the line $y = x$. I changed border conditions:
+
+$$\tilde{\phi}(x, t) = \phi(x, t)$$
+$$\tilde{\phi}(y, t) = - \phi(y, t)$$
+
+And recieved $\phi \in \mathbb{C}^2$ solution:
+
+![gif](results/sol_final.gif)
