@@ -4,33 +4,6 @@
 #include "calculate.h"
 #include <iostream>
 
-
-void init_task(mpi_task_t* task, size_t* pair, equation_t* equation) {
-    task->time = equation->time;
-    task->point[0] = pair[0];
-    task->point[1] = pair[1];
-    task->phi[0]   = equation->phi->grid_val[pair[0]][pair[1]];
-    task->phi[1]   = equation->phi->grid_val[pair[0] - 1][pair[1]];
-    task->phi[2]   = equation->phi->grid_val[pair[0]][pair[1] - 1];
-}
-
-MPI_Datatype create_mpi_task_type() {
-    const int    nitems = 3;
-    int          blocklengths[3] = {1, 3, 2};
-    MPI_Datatype types[3] = {MPI_FLOAT, MPI_FLOAT, MPI_UNSIGNED_LONG};
-    MPI_Datatype mpi_task;
-    MPI_Aint     offsets[3];
-
-    offsets[0] = offsetof(mpi_task_t, time);
-    offsets[1] = offsetof(mpi_task_t, phi);
-    offsets[2] = offsetof(mpi_task_t, point);
-
-    MPI_Type_create_struct(nitems, blocklengths, offsets, types, &mpi_task);
-    MPI_Type_commit(&mpi_task);
-
-    return mpi_task;
-}
-
 int main(int argc, char** argv) {
     if (argc < 4) {
         std::cout << "Lack of arguments! Need 3, provided " << argc - 1 << "\n";
@@ -63,7 +36,7 @@ int main(int argc, char** argv) {
                 size_t y = pairs[layer].array[2 * i + 1];
 
                 mpi_task_t task = {};
-                init_task(&task, pairs[layer].array + 2*i, equation);
+                init_task_triangle(&task, pairs[layer].array + 2*i, equation);
                 equation->phi->gradient[x][y] = gradient_triangle(&task, grid_step, u);
             }
         }

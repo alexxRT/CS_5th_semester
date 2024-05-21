@@ -69,7 +69,7 @@ int main (int argc, char** argv) {
 
     start = clock();
 
-    for (int iter = 0; iter < 1; iter ++) {
+    for (int iter = 0; iter < 1000; iter ++) {
         if (rank == 0) {
             dump_result(dump_file, "a", equation);
             for (size_t layer = 1; layer < pairs->pairs_num; layer ++) {
@@ -78,9 +78,8 @@ int main (int argc, char** argv) {
                     size_t y = pairs[layer].array[2 * i + 1];
 
                     mpi_task_t task = {};
-                    init_task_triangle(&task, pairs[layer].array + 2 * i, equation);
-
-                    equation->phi->gradient[x][y] = gradient_triangle(&task, grid_step, u);
+                    init_task_squared(&task, pairs[layer].array + 2 * i, equation);
+                    equation->phi->gradient[x][y] = gradient_squared(&task, grid_step, u);
                 }
             }
         }
@@ -91,12 +90,12 @@ int main (int argc, char** argv) {
                     size_t y = pairs[layer].array[2 * i + 1];
 
                     mpi_task_t task = {};
-                    init_task_triangle(&task, pairs[layer].array + 2 * i, equation);
-
-                    equation->phi->gradient[x][y] = gradient_triangle(&task, grid_step, u);
+                    init_task_squared(&task, pairs[layer].array + 2 * i, equation);
+                    equation->phi->gradient[x][y] = gradient_squared(&task, grid_step, u);
                 }
             }
         }
+
         update_result(equation);
 
         //share results

@@ -21,3 +21,6 @@ target_link_libraries(triangle PUBLIC mpi)
 
 add_executable(centered mpi_centered.cpp)
 target_link_libraries(centered PUBLIC mpi)
+
+add_executable(squared mpi_squared.cpp)
+target_link_libraries(squared PUBLIC mpi)
